@@ -1,0 +1,38 @@
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\bin\Debug\ManageHotel.exe.config
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\bin\Debug\ManageHotel.exe
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\bin\Debug\ManageHotel.pdb
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\bin\Debug\EntityFramework.dll
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\bin\Debug\EntityFramework.xml
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.csprojAssemblyReference.cache
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.Properties.Resources.resources
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.csproj.GenerateResource.cache
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.csproj.CoreCompileInputs.cache
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.csproj.CopyComplete
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.exe
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.pdb
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.fRoomCategories.resources
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.fCustomer.resources
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.FormRoomList.resources
+C:\Users\P50\Desktop\ManageHotel\ManageHotel\obj\Debug\ManageHotel.FormBill.resources
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\bin\Debug\ManageHotel.exe.config
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\bin\Debug\ManageHotel.exe
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\bin\Debug\ManageHotel.pdb
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\bin\Debug\EntityFramework.dll
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\bin\Debug\EntityFramework.SqlServer.dll
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\bin\Debug\EntityFramework.xml
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\bin\Debug\EntityFramework.SqlServer.xml
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.csprojAssemblyReference.cache
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.fRoomCategories.resources
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.FormBill.resources
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.fCustomer.resources
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.Properties.Resources.resources
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.csproj.GenerateResource.cache
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.csproj.CoreCompileInputs.cache
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.csproj.CopyComplete
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.exe
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.pdb
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.fRoomList.resources
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.FormRules.resources
+D:\OneDrive - VNU-HCMUS\Work\Subject\ManageHotel\ManageHotel\obj\Debug\ManageHotel.FormReport.resources

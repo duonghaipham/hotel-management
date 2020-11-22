@@ -151,9 +151,14 @@ namespace ManageHotel
             }
             string name = dgvRoomCategories.SelectedCells[0].OwningRow.Cells["name"].Value.ToString();
             RoomCategory roomCategory = entities.RoomCategories.Find(name);
+
+            if (roomCategory.name != txtRoomName.Text)
+            {
+                MessageBox.Show("Không thể sửa tên phòng. Để sửa vui lòng xóa và tạo lại phòng mới!", "Không thể sửa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (entities.Customers.Where(p => p.roomName == roomCategory.name).ToList().Count == 0) //nếu phòng đang được thuê thì ai cho sửa
             {
-                roomCategory.name = txtRoomName.Text;
                 roomCategory.kind = cbRoomKind.SelectedItem.ToString();
                 roomCategory.price = Convert.ToInt32(txtRoomPrice.Text);
                 roomCategory.note = txtNote.Text;

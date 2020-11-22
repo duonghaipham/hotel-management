@@ -87,14 +87,19 @@ namespace ManageHotel
             if (dgvRentRoom.Rows.Count != 0)    //kiểm tra bảng có dữ liệu hay không
             {
                 string roomName = dgvRentRoom.SelectedCells[0].OwningRow.Cells["name"].Value.ToString();
-                Customer customer = entities.Customers.Where(p => p.roomName == roomName).FirstOrDefault();
-                string payString = "Tên khách hàng: " + customer.name +
-                    ".\nCăn cước: " + customer.identityNumber +
-                    ".\nĐịa chỉ: " + customer.address +
-                    ".\nPhòng: " + customer.roomName +
-                    ".\nNgày thuê: " + customer.rentedDay.ToString() +
-                    ".\nKhách hàng phải thanh toán " + txtPriceValue.Text +
-                    ".\nBạn thực sự muốn thanh toán và trả phòng?";    //tạo chuỗi thông báo tổng kết dữ liệu cho khách hàng
+                List<Customer> customer = entities.Customers.Where(p => p.roomName == roomName).ToList();
+                string payString = "";
+
+                payString += "Phòng: " + customer[0].roomName + "\n";
+                for (int i = 0; i < customer.Count; i++)
+                {
+                    payString += "Tên khách hàng: " + customer[i].name +
+                    ".\nCăn cước: " + customer[i].identityNumber +
+                    ".\nĐịa chỉ: " + customer[i].address +
+                    ".\nNgày thuê: " + customer[i].rentedDay.ToString() + ".\n\n";
+                }
+                payString += "Khách hàng phải thanh toán " + txtPriceValue.Text +
+                    ".\nBạn thực sự muốn thanh toán?";    //tạo chuỗi thông báo tổng kết dữ liệu cho khách hàng
 
                 DialogResult dialogResult = MessageBox.Show(payString, "Thanh toán", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.OK)    //nếu thật sự muốn thoát
@@ -104,11 +109,11 @@ namespace ManageHotel
 
                     RoomHistory history = new RoomHistory() //thêm vào lịch sử thuê phòng để dành truy vấn báo cáo
                     {
-                        name = customer.RoomCategory.name,
-                        kind = customer.RoomCategory.kind,
-                        countRented = customer.RoomCategory.countRented,
-                        rentedDay = customer.RoomCategory.rentedDay,
-                        total = customer.RoomCategory.total
+                        name = customer[0].RoomCategory.name,
+                        kind = customer[0].RoomCategory.kind,
+                        countRented = customer[0].RoomCategory.countRented,
+                        rentedDay = customer[0].RoomCategory.rentedDay,
+                        total = customer[0].RoomCategory.total
                     };
                     entities.RoomHistories.Add(history);
 

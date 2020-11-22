@@ -20,10 +20,11 @@ namespace ManageHotel
 
             List<string> roomName = entities.RoomCategories.Select(p => p.name).ToList();
             if (roomName.Count != 0)
+            {
                 cbRoom.DataSource = roomName;   //truy vấn và đổ tên phòng vào comboBox
-
-            RefreshData();
-            AddBinding();
+                RefreshData();
+                AddBinding();
+            }
         }
 
         private void LoadRules()    //tải quy định cho form này
@@ -41,8 +42,11 @@ namespace ManageHotel
 
         private void RefreshData()  //làm mới dữ liệu
         {
+            //trường hợp vào form tính tiền, trở ngược ra form khách hàng
+            if (cbRoom.DataSource == null)
+                return;
             //thực hiện việc đánh số cho mẫu dữ liệu được tải ra (ở đây sử dụng ordinalNumber như một biến tạm)
-            List<int> id = entities.Customers.Select(p => p.id).ToList();
+            List<int> id = entities.Customers.Where(p => p.roomName == cbRoom.SelectedValue.ToString()).Select(p => p.id).ToList();
             for (int i = 0; i < id.Count; i++)
             {
                 Customer customer = entities.Customers.Find(id[i]);
@@ -112,7 +116,7 @@ namespace ManageHotel
                 MessageBox.Show("Không tìm thấy thông tin hiện tại để cập nhật", "Không thể lưu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            int id = int.Parse(dgvTicket.SelectedCells[0].OwningRow.Cells["id"].Value.ToString());
+            int id = int.Parse(dgvTicket.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
             Customer customer = entities.Customers.Find(id);
             customer.name = txtCustomerName.Text;
             customer.kind = cbCustomerKind.SelectedItem.ToString();

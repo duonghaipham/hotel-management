@@ -22,7 +22,7 @@ namespace ManageHotel
 
         private void FetchRules()   //hàm đổ dữ liệu vào các control trong form
         {
-            Rule rule = entities.Rules.Find(1); //truy cập dòng đầu tiên của bảng Rule trong DB
+            Rule rule = entities.Rules.Find(1); //truy cập dòng đầu tiên của bảng Rule trong DB (2 vì đã bị sửa)
             //gán dữ liệu cho các value của các control
             nudAmountRooms.Value = rule.nRoomKind;
             txtKindAndPrice.Text = rule.roomKindPrice;

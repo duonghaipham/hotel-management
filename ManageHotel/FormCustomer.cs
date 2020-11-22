@@ -117,7 +117,7 @@ namespace ManageHotel
                 return;
             }
             int id = int.Parse(dgvTicket.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
-            Customer customer = entities.Customers.Find(id);
+            Customer customer = entities.Customers.Where(p => p.ordinalNumber == id).FirstOrDefault();
             customer.name = txtCustomerName.Text;
             customer.kind = cbCustomerKind.SelectedItem.ToString();
             customer.identityNumber = txtIdentity.Text;

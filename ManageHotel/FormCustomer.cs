@@ -116,8 +116,9 @@ namespace ManageHotel
                 MessageBox.Show("Không tìm thấy thông tin hiện tại để cập nhật", "Không thể lưu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            int id = int.Parse(dgvTicket.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
-            Customer customer = entities.Customers.Where(p => p.ordinalNumber == id).FirstOrDefault();
+            string name = dgvTicket.SelectedCells[0].OwningRow.Cells[1].Value.ToString();
+            string identityNumber = dgvTicket.SelectedCells[0].OwningRow.Cells[3].Value.ToString();
+            Customer customer = entities.Customers.Where(p => p.name == name && p.identityNumber == identityNumber).FirstOrDefault();
             customer.name = txtCustomerName.Text;
             customer.kind = cbCustomerKind.SelectedItem.ToString();
             customer.identityNumber = txtIdentity.Text;

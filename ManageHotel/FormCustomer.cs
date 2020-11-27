@@ -63,6 +63,16 @@ namespace ManageHotel
             source.DataSource = ambiguosData;
             dgvTicket.DataSource = source;
 
+            //nếu bảng có dữ liệu thì lấy dòng đầu tiên, truy vấn thông tin khách hàng, đổ ngày vào dateTimePicker
+            if (ambiguosData.Count != 0)
+            {
+                string tempName = ambiguosData.First().name;
+                string identityNUmder = ambiguosData.First().identityNumber;
+                dtpRentRoom.Value = (DateTime)entities.Customers.Where(p => p.roomName == cbRoom.SelectedValue.ToString() && p.name == tempName && p.identityNumber == identityNUmder).FirstOrDefault().rentedDay;
+            }
+            else
+                dtpRentRoom.Value = DateTime.Now;
+
             //đặt tên cho tiêu đề của các cột
             dgvTicket.Columns[0].HeaderText = "Số thứ tự";
             dgvTicket.Columns[1].HeaderText = "Tên khách";
@@ -123,6 +133,8 @@ namespace ManageHotel
             customer.kind = cbCustomerKind.SelectedItem.ToString();
             customer.identityNumber = txtIdentity.Text;
             customer.address = txtAddress.Text;
+            customer.rentedDay = dtpRentRoom.Value;
+            customer.RoomCategory.rentedDay = dtpRentRoom.Value;
             entities.SaveChanges();
         }
         #endregion
@@ -152,6 +164,18 @@ namespace ManageHotel
             form.ShowDialog();
             Show();
             RefreshData();
+        }
+
+        private void dgvTicket_CellClick(object sender, DataGridViewCellEventArgs e)    //sự kiện khi click vào khách hàng sẽ hiện ra ngày thuê
+        {
+            if (e.RowIndex != -1)   //-1 là chỉ số hàng của hàng tiêu đề, nếu không có lệnh if này sẽ phát sinh ngoại lệ
+            {
+                string name = dgvTicket.SelectedCells[0].OwningRow.Cells[1].Value.ToString();
+                string identityNumber = dgvTicket.SelectedCells[0].OwningRow.Cells[3].Value.ToString();
+                Customer customer = entities.Customers.Where(p => p.name == name && p.identityNumber == identityNumber).FirstOrDefault();
+
+                dtpRentRoom.Value = (DateTime)customer.rentedDay;
+            }
         }
         #endregion
     }

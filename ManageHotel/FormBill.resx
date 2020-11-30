@@ -117,4 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAIAICAQAAAAAADoAgAAJgAAABAQEAAAAAAAKAEAAA4DAAAoAAAAIAAAAEAAAAABAAQAAAAAAAAC
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAICAgADAwMAAAAD/AAD/
+        AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAAAAAAAAAAAAAAD///////////////AAAAAAAAAA
+        AAAAAAAAAADwAAAA///////////////w8AAAAAAAAAAAAAAAAAAA8PAAAA/////////wiIiIgPDwAAAP
+        ////////8AiIiIDw8AAAD/////////DwiIiA8PAAAA/////////w/wiIgPDwAAAP/4iIiIiIgP/wiIDw
+        8AAAD/////////D//wiA8PAAAA/////////w///wgPDwAAAP/4iIiIiIgAAAAADw8AAAD///////////
+        ///w8PAAAA//////////////8PDwAAAP/4iIiIiIiIiI//Dw8AAAD//////////////w8PAAAA//////
+        ////////8PDwAAAP/4iIiIiIiIiI//Dw8AAAD//////////////w8PAAAA//////////////8PDwAAAP
+        /4iIiIiIiIiI//Dw8AAAD//////////////w8PAAAA//////////////8PDwAAAP/4iIiIiIiIiI//Dw
+        8AAAD//////////////w8PAAAA//////////////8PDwAAAP/4iIiIiIiIiI//Dw8AAAD///////////
+        ///w8AAAAA//////////////8PAAAAAP//////////////AAAAAAAAAAAAAAAAAAAAAAAAAA/AAAA/gA
+        AAPwAAAD4AAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AA
+        AAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAPAAAADwAAAA8AAAAfAAAAPwAAAH8AA
+        AD8oAAAAEAAAACAAAAABAAQAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAA
+        AACAAIAAgIAAAICAgADAwMAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA////AAAAAAAAAAAAAA//////
+        /wAAAAAAAAAPAAD///8AiA8AAP///w8IDwAA+IiID/APAAD///8AAA8AAPiIiP//DwAA//////8PAAD4
+        iIiIjw8AAP//////DwAA+IiIiI8PAAD//////w8AAPiIiIiPDwAA//////8AAAAAAAAAAAAAwAEAAMAB
+        AACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAEAAIABAACAAQAAgAcAAA==
+</value>
+  </data>
 </root>

@@ -18,6 +18,15 @@
           <Property Name="roomName" Type="nvarchar" MaxLength="255" />
           <Property Name="ordinalNumber" Type="int" />
         </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="account" Type="nvarchar" MaxLength="255" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="RoomCategories">
           <Key>
             <PropertyRef Name="name" />
@@ -67,7 +76,7 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="fk_room">
+        <Association Name="FK__Customer__roomNa__18EBB532">
           <End Role="RoomCategories" Type="Self.RoomCategories" Multiplicity="0..1" />
           <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -81,11 +90,12 @@
         </Association>
         <EntityContainer Name="ManageHotelModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoomCategories" EntityType="Self.RoomCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoomHistory" EntityType="Self.RoomHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rules" EntityType="Self.Rules" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="fk_room" Association="Self.fk_room">
+          <AssociationSet Name="FK__Customer__roomNa__18EBB532" Association="Self.FK__Customer__roomNa__18EBB532">
             <End Role="RoomCategories" EntitySet="RoomCategories" />
             <End Role="Customer" EntitySet="Customer" />
           </AssociationSet>
@@ -96,11 +106,12 @@
       <Schema Namespace="ManageHotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ManageHotelEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="ManageHotelModel.Customer" />
+          <EntitySet Name="Managers" EntityType="ManageHotelModel.Manager" />
           <EntitySet Name="RoomCategories" EntityType="ManageHotelModel.RoomCategory" />
           <EntitySet Name="RoomHistories" EntityType="ManageHotelModel.RoomHistory" />
           <EntitySet Name="Rules" EntityType="ManageHotelModel.Rule" />
           <EntitySet Name="sysdiagrams" EntityType="ManageHotelModel.sysdiagram" />
-          <AssociationSet Name="fk_room" Association="ManageHotelModel.fk_room">
+          <AssociationSet Name="FK__Customer__roomNa__18EBB532" Association="ManageHotelModel.FK__Customer__roomNa__18EBB532">
             <End Role="RoomCategory" EntitySet="RoomCategories" />
             <End Role="Customer" EntitySet="Customers" />
           </AssociationSet>
@@ -117,7 +128,16 @@
           <Property Name="rentedDay" Type="DateTime" Precision="3" />
           <Property Name="roomName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ordinalNumber" Type="Int32" />
-          <NavigationProperty Name="RoomCategory" Relationship="ManageHotelModel.fk_room" FromRole="Customer" ToRole="RoomCategory" />
+          <NavigationProperty Name="RoomCategory" Relationship="ManageHotelModel.FK__Customer__roomNa__18EBB532" FromRole="Customer" ToRole="RoomCategory" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="account" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="RoomCategory">
           <Key>
@@ -133,7 +153,7 @@
           <Property Name="rentedDay" Type="DateTime" Precision="3" />
           <Property Name="total" Type="Double" />
           <Property Name="ordinalNumber" Type="Int32" />
-          <NavigationProperty Name="Customers" Relationship="ManageHotelModel.fk_room" FromRole="RoomCategory" ToRole="Customer" />
+          <NavigationProperty Name="Customers" Relationship="ManageHotelModel.FK__Customer__roomNa__18EBB532" FromRole="RoomCategory" ToRole="Customer" />
         </EntityType>
         <EntityType Name="RoomHistory">
           <Key>
@@ -169,7 +189,7 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="fk_room">
+        <Association Name="FK__Customer__roomNa__18EBB532">
           <End Type="ManageHotelModel.RoomCategory" Role="RoomCategory" Multiplicity="0..1" />
           <End Type="ManageHotelModel.Customer" Role="Customer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -197,6 +217,16 @@
                 <ScalarProperty Name="identityNumber" ColumnName="identityNumber" />
                 <ScalarProperty Name="kind" ColumnName="kind" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Managers">
+            <EntityTypeMapping TypeName="ManageHotelModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="account" ColumnName="account" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -28,26 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fRoomCategories));
             this.dgvRoomCategories = new System.Windows.Forms.DataGridView();
             this.lblRoomCategories = new System.Windows.Forms.Label();
             this.txtRoomPrice = new System.Windows.Forms.TextBox();
             this.lblRoomPrice = new System.Windows.Forms.Label();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.lblRoomName = new System.Windows.Forms.Label();
             this.txtRoomName = new System.Windows.Forms.TextBox();
             this.lblRoomKind = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.lblNote = new System.Windows.Forms.Label();
             this.cbRoomKind = new System.Windows.Forms.ComboBox();
-            this.btnCheckStatus = new System.Windows.Forms.Button();
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.chươngTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tínhNăngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRules = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiLogout = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnCheckStatus = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomCategories)).BeginInit();
             this.msMain.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +71,7 @@
             // 
             this.lblRoomCategories.AutoSize = true;
             this.lblRoomCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoomCategories.Location = new System.Drawing.Point(189, 23);
+            this.lblRoomCategories.Location = new System.Drawing.Point(189, 28);
             this.lblRoomCategories.Name = "lblRoomCategories";
             this.lblRoomCategories.Size = new System.Drawing.Size(207, 25);
             this.lblRoomCategories.TabIndex = 1;
@@ -92,39 +95,6 @@
             this.lblRoomPrice.Size = new System.Drawing.Size(29, 16);
             this.lblRoomPrice.TabIndex = 40;
             this.lblRoomPrice.Text = "Giá";
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(494, 71);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(65, 70);
-            this.btnEdit.TabIndex = 7;
-            this.btnEdit.Text = "Lưu";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(419, 71);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(65, 70);
-            this.btnDelete.TabIndex = 6;
-            this.btnDelete.Text = "Loại bỏ";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(344, 71);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(65, 70);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblRoomName
             // 
@@ -183,17 +153,6 @@
             this.cbRoomKind.TabIndex = 2;
             this.cbRoomKind.SelectedValueChanged += new System.EventHandler(this.cbRoomKind_SelectedValueChanged);
             // 
-            // btnCheckStatus
-            // 
-            this.btnCheckStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckStatus.Location = new System.Drawing.Point(344, 152);
-            this.btnCheckStatus.Name = "btnCheckStatus";
-            this.btnCheckStatus.Size = new System.Drawing.Size(215, 39);
-            this.btnCheckStatus.TabIndex = 8;
-            this.btnCheckStatus.Text = "Tình trạng phòng...";
-            this.btnCheckStatus.UseVisualStyleBackColor = true;
-            this.btnCheckStatus.Click += new System.EventHandler(this.btnCheckStatus_Click);
-            // 
             // msMain
             // 
             this.msMain.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,16 +171,25 @@
             // chươngTrìnhToolStripMenuItem
             // 
             this.chươngTrìnhToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiAccount,
+            this.tsmiLogout,
             this.tsmiExit});
             this.chươngTrìnhToolStripMenuItem.Name = "chươngTrìnhToolStripMenuItem";
             this.chươngTrìnhToolStripMenuItem.Size = new System.Drawing.Size(96, 21);
             this.chươngTrìnhToolStripMenuItem.Text = "Chương trình";
             // 
+            // tsmiAccount
+            // 
+            this.tsmiAccount.Name = "tsmiAccount";
+            this.tsmiAccount.Size = new System.Drawing.Size(180, 22);
+            this.tsmiAccount.Text = "Đổi mật khẩu";
+            this.tsmiAccount.Click += new System.EventHandler(this.tsmiAccount_Click);
+            // 
             // tsmiExit
             // 
             this.tsmiExit.Name = "tsmiExit";
             this.tsmiExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.tsmiExit.Size = new System.Drawing.Size(154, 22);
+            this.tsmiExit.Size = new System.Drawing.Size(180, 22);
             this.tsmiExit.Text = "Thoát";
             this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
@@ -248,6 +216,66 @@
             this.tsmiReport.Text = "Báo cáo";
             this.tsmiReport.Click += new System.EventHandler(this.tsmiStatistic_Click);
             // 
+            // tsmiLogout
+            // 
+            this.tsmiLogout.Name = "tsmiLogout";
+            this.tsmiLogout.Size = new System.Drawing.Size(180, 22);
+            this.tsmiLogout.Text = "Đăng xuất";
+            this.tsmiLogout.Click += new System.EventHandler(this.tsmiLogout_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Image = global::ManageHotel.Properties.Resources.Add;
+            this.btnAdd.Location = new System.Drawing.Point(344, 71);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(65, 57);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnCheckStatus
+            // 
+            this.btnCheckStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckStatus.Image = global::ManageHotel.Properties.Resources.Scan;
+            this.btnCheckStatus.Location = new System.Drawing.Point(344, 137);
+            this.btnCheckStatus.Name = "btnCheckStatus";
+            this.btnCheckStatus.Size = new System.Drawing.Size(215, 54);
+            this.btnCheckStatus.TabIndex = 8;
+            this.btnCheckStatus.Text = "Tình trạng phòng...";
+            this.btnCheckStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCheckStatus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCheckStatus.UseVisualStyleBackColor = true;
+            this.btnCheckStatus.Click += new System.EventHandler(this.btnCheckStatus_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Image = global::ManageHotel.Properties.Resources.Edit;
+            this.btnEdit.Location = new System.Drawing.Point(494, 71);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(65, 57);
+            this.btnEdit.TabIndex = 7;
+            this.btnEdit.Text = "Lưu";
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Image = global::ManageHotel.Properties.Resources.Delete;
+            this.btnDelete.Location = new System.Drawing.Point(419, 71);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(65, 57);
+            this.btnDelete.TabIndex = 6;
+            this.btnDelete.Text = "Loại bỏ";
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // fRoomCategories
             // 
             this.AcceptButton = this.btnAdd;
@@ -270,6 +298,7 @@
             this.Controls.Add(this.txtRoomName);
             this.Controls.Add(this.msMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.msMain;
             this.MaximizeBox = false;
             this.Name = "fRoomCategories";
@@ -305,6 +334,8 @@
         private System.Windows.Forms.ToolStripMenuItem tínhNăngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiRules;
         private System.Windows.Forms.ToolStripMenuItem tsmiReport;
+        private System.Windows.Forms.ToolStripMenuItem tsmiAccount;
+        private System.Windows.Forms.ToolStripMenuItem tsmiLogout;
     }
 }
 

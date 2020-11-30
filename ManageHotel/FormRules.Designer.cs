@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRules));
             this.lblRules = new System.Windows.Forms.Label();
             this.gbRoomProperties = new System.Windows.Forms.GroupBox();
             this.txtKindAndPrice = new System.Windows.Forms.TextBox();
@@ -60,10 +61,9 @@
             // 
             this.lblRules.AutoSize = true;
             this.lblRules.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRules.Location = new System.Drawing.Point(239, 20);
-            this.lblRules.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRules.Location = new System.Drawing.Point(179, 16);
             this.lblRules.Name = "lblRules";
-            this.lblRules.Size = new System.Drawing.Size(148, 31);
+            this.lblRules.Size = new System.Drawing.Size(114, 25);
             this.lblRules.TabIndex = 9;
             this.lblRules.Text = "QUY ĐỊNH";
             // 
@@ -74,44 +74,44 @@
             this.gbRoomProperties.Controls.Add(this.nudAmountRooms);
             this.gbRoomProperties.Controls.Add(this.lblAmountRoomKinds);
             this.gbRoomProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbRoomProperties.Location = new System.Drawing.Point(27, 66);
-            this.gbRoomProperties.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbRoomProperties.Location = new System.Drawing.Point(20, 54);
+            this.gbRoomProperties.Margin = new System.Windows.Forms.Padding(2);
             this.gbRoomProperties.Name = "gbRoomProperties";
-            this.gbRoomProperties.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbRoomProperties.Size = new System.Drawing.Size(275, 378);
+            this.gbRoomProperties.Padding = new System.Windows.Forms.Padding(2);
+            this.gbRoomProperties.Size = new System.Drawing.Size(206, 307);
             this.gbRoomProperties.TabIndex = 10;
             this.gbRoomProperties.TabStop = false;
             this.gbRoomProperties.Text = "Thuộc tính phòng";
             // 
             // txtKindAndPrice
             // 
-            this.txtKindAndPrice.Location = new System.Drawing.Point(25, 127);
-            this.txtKindAndPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKindAndPrice.Location = new System.Drawing.Point(19, 103);
             this.txtKindAndPrice.Multiline = true;
             this.txtKindAndPrice.Name = "txtKindAndPrice";
-            this.txtKindAndPrice.Size = new System.Drawing.Size(223, 226);
+            this.txtKindAndPrice.Size = new System.Drawing.Size(168, 184);
             this.txtKindAndPrice.TabIndex = 2;
             // 
             // lblRoomNameAndPrice
             // 
             this.lblRoomNameAndPrice.AutoSize = true;
-            this.lblRoomNameAndPrice.Location = new System.Drawing.Point(20, 87);
+            this.lblRoomNameAndPrice.Location = new System.Drawing.Point(15, 71);
+            this.lblRoomNameAndPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRoomNameAndPrice.Name = "lblRoomNameAndPrice";
-            this.lblRoomNameAndPrice.Size = new System.Drawing.Size(188, 20);
+            this.lblRoomNameAndPrice.Size = new System.Drawing.Size(163, 17);
             this.lblRoomNameAndPrice.TabIndex = 2;
             this.lblRoomNameAndPrice.Text = "Tên loại phòng - đơn giá";
             // 
             // nudAmountRooms
             // 
-            this.nudAmountRooms.Location = new System.Drawing.Point(171, 43);
-            this.nudAmountRooms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nudAmountRooms.Location = new System.Drawing.Point(128, 35);
+            this.nudAmountRooms.Margin = new System.Windows.Forms.Padding(2);
             this.nudAmountRooms.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudAmountRooms.Name = "nudAmountRooms";
-            this.nudAmountRooms.Size = new System.Drawing.Size(77, 27);
+            this.nudAmountRooms.Size = new System.Drawing.Size(58, 23);
             this.nudAmountRooms.TabIndex = 1;
             this.nudAmountRooms.Value = new decimal(new int[] {
             1,
@@ -122,9 +122,10 @@
             // lblAmountRoomKinds
             // 
             this.lblAmountRoomKinds.AutoSize = true;
-            this.lblAmountRoomKinds.Location = new System.Drawing.Point(20, 46);
+            this.lblAmountRoomKinds.Location = new System.Drawing.Point(15, 37);
+            this.lblAmountRoomKinds.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAmountRoomKinds.Name = "lblAmountRoomKinds";
-            this.lblAmountRoomKinds.Size = new System.Drawing.Size(110, 20);
+            this.lblAmountRoomKinds.Size = new System.Drawing.Size(95, 17);
             this.lblAmountRoomKinds.TabIndex = 0;
             this.lblAmountRoomKinds.Text = "Số loại phòng";
             // 
@@ -137,35 +138,34 @@
             this.gbCustomerProperties.Controls.Add(this.nudAmountCustomerKinds);
             this.gbCustomerProperties.Controls.Add(this.lblAmountCustomerKinds);
             this.gbCustomerProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbCustomerProperties.Location = new System.Drawing.Point(323, 66);
-            this.gbCustomerProperties.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbCustomerProperties.Location = new System.Drawing.Point(242, 54);
+            this.gbCustomerProperties.Margin = new System.Windows.Forms.Padding(2);
             this.gbCustomerProperties.Name = "gbCustomerProperties";
-            this.gbCustomerProperties.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbCustomerProperties.Size = new System.Drawing.Size(275, 378);
+            this.gbCustomerProperties.Padding = new System.Windows.Forms.Padding(2);
+            this.gbCustomerProperties.Size = new System.Drawing.Size(206, 307);
             this.gbCustomerProperties.TabIndex = 11;
             this.gbCustomerProperties.TabStop = false;
             this.gbCustomerProperties.Text = "Thuộc tính khách";
             // 
             // txtCustomerKinds
             // 
-            this.txtCustomerKinds.Location = new System.Drawing.Point(25, 127);
-            this.txtCustomerKinds.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCustomerKinds.Location = new System.Drawing.Point(19, 103);
             this.txtCustomerKinds.Multiline = true;
             this.txtCustomerKinds.Name = "txtCustomerKinds";
-            this.txtCustomerKinds.Size = new System.Drawing.Size(221, 184);
+            this.txtCustomerKinds.Size = new System.Drawing.Size(167, 150);
             this.txtCustomerKinds.TabIndex = 4;
             // 
             // nudMaximumAmount
             // 
-            this.nudMaximumAmount.Location = new System.Drawing.Point(173, 330);
-            this.nudMaximumAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nudMaximumAmount.Location = new System.Drawing.Point(130, 268);
+            this.nudMaximumAmount.Margin = new System.Windows.Forms.Padding(2);
             this.nudMaximumAmount.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudMaximumAmount.Name = "nudMaximumAmount";
-            this.nudMaximumAmount.Size = new System.Drawing.Size(77, 27);
+            this.nudMaximumAmount.Size = new System.Drawing.Size(58, 23);
             this.nudMaximumAmount.TabIndex = 5;
             this.nudMaximumAmount.Value = new decimal(new int[] {
             1,
@@ -176,32 +176,34 @@
             // lblMaximumAmount
             // 
             this.lblMaximumAmount.AutoSize = true;
-            this.lblMaximumAmount.Location = new System.Drawing.Point(24, 332);
+            this.lblMaximumAmount.Location = new System.Drawing.Point(18, 270);
+            this.lblMaximumAmount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMaximumAmount.Name = "lblMaximumAmount";
-            this.lblMaximumAmount.Size = new System.Drawing.Size(124, 20);
+            this.lblMaximumAmount.Size = new System.Drawing.Size(106, 17);
             this.lblMaximumAmount.TabIndex = 4;
             this.lblMaximumAmount.Text = "Số khách tối đa";
             // 
             // lblCustomerKind
             // 
             this.lblCustomerKind.AutoSize = true;
-            this.lblCustomerKind.Location = new System.Drawing.Point(21, 87);
+            this.lblCustomerKind.Location = new System.Drawing.Point(16, 71);
+            this.lblCustomerKind.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCustomerKind.Name = "lblCustomerKind";
-            this.lblCustomerKind.Size = new System.Drawing.Size(147, 20);
+            this.lblCustomerKind.Size = new System.Drawing.Size(125, 17);
             this.lblCustomerKind.TabIndex = 2;
             this.lblCustomerKind.Text = "Loại khách - hệ số";
             // 
             // nudAmountCustomerKinds
             // 
-            this.nudAmountCustomerKinds.Location = new System.Drawing.Point(171, 43);
-            this.nudAmountCustomerKinds.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nudAmountCustomerKinds.Location = new System.Drawing.Point(128, 35);
+            this.nudAmountCustomerKinds.Margin = new System.Windows.Forms.Padding(2);
             this.nudAmountCustomerKinds.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudAmountCustomerKinds.Name = "nudAmountCustomerKinds";
-            this.nudAmountCustomerKinds.Size = new System.Drawing.Size(77, 27);
+            this.nudAmountCustomerKinds.Size = new System.Drawing.Size(58, 23);
             this.nudAmountCustomerKinds.TabIndex = 3;
             this.nudAmountCustomerKinds.Value = new decimal(new int[] {
             1,
@@ -212,9 +214,10 @@
             // lblAmountCustomerKinds
             // 
             this.lblAmountCustomerKinds.AutoSize = true;
-            this.lblAmountCustomerKinds.Location = new System.Drawing.Point(21, 46);
+            this.lblAmountCustomerKinds.Location = new System.Drawing.Point(16, 37);
+            this.lblAmountCustomerKinds.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAmountCustomerKinds.Name = "lblAmountCustomerKinds";
-            this.lblAmountCustomerKinds.Size = new System.Drawing.Size(109, 20);
+            this.lblAmountCustomerKinds.Size = new System.Drawing.Size(93, 17);
             this.lblAmountCustomerKinds.TabIndex = 0;
             this.lblAmountCustomerKinds.Text = "Số loại khách";
             // 
@@ -225,26 +228,26 @@
             this.gbSurcharge.Controls.Add(this.txtRatio);
             this.gbSurcharge.Controls.Add(this.lblRatio);
             this.gbSurcharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbSurcharge.Location = new System.Drawing.Point(27, 453);
-            this.gbSurcharge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbSurcharge.Location = new System.Drawing.Point(20, 368);
+            this.gbSurcharge.Margin = new System.Windows.Forms.Padding(2);
             this.gbSurcharge.Name = "gbSurcharge";
-            this.gbSurcharge.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbSurcharge.Size = new System.Drawing.Size(571, 95);
+            this.gbSurcharge.Padding = new System.Windows.Forms.Padding(2);
+            this.gbSurcharge.Size = new System.Drawing.Size(428, 77);
             this.gbSurcharge.TabIndex = 12;
             this.gbSurcharge.TabStop = false;
             this.gbSurcharge.Text = "Tỷ lệ phụ thu";
             // 
             // nudSurchargeBeginning
             // 
-            this.nudSurchargeBeginning.Location = new System.Drawing.Point(469, 39);
-            this.nudSurchargeBeginning.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nudSurchargeBeginning.Location = new System.Drawing.Point(352, 32);
+            this.nudSurchargeBeginning.Margin = new System.Windows.Forms.Padding(2);
             this.nudSurchargeBeginning.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudSurchargeBeginning.Name = "nudSurchargeBeginning";
-            this.nudSurchargeBeginning.Size = new System.Drawing.Size(77, 27);
+            this.nudSurchargeBeginning.Size = new System.Drawing.Size(58, 23);
             this.nudSurchargeBeginning.TabIndex = 7;
             this.nudSurchargeBeginning.Value = new decimal(new int[] {
             1,
@@ -255,57 +258,63 @@
             // lblSurcharge
             // 
             this.lblSurcharge.AutoSize = true;
-            this.lblSurcharge.Location = new System.Drawing.Point(293, 43);
+            this.lblSurcharge.Location = new System.Drawing.Point(220, 35);
+            this.lblSurcharge.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSurcharge.Name = "lblSurcharge";
-            this.lblSurcharge.Size = new System.Drawing.Size(153, 20);
+            this.lblSurcharge.Size = new System.Drawing.Size(131, 17);
             this.lblSurcharge.TabIndex = 6;
             this.lblSurcharge.Text = "Bắt đầu phụ thu khi";
             // 
             // txtRatio
             // 
-            this.txtRatio.Location = new System.Drawing.Point(101, 39);
-            this.txtRatio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRatio.Location = new System.Drawing.Point(76, 32);
+            this.txtRatio.Margin = new System.Windows.Forms.Padding(2);
             this.txtRatio.Name = "txtRatio";
-            this.txtRatio.Size = new System.Drawing.Size(145, 27);
+            this.txtRatio.Size = new System.Drawing.Size(110, 23);
             this.txtRatio.TabIndex = 6;
             // 
             // lblRatio
             // 
             this.lblRatio.AutoSize = true;
-            this.lblRatio.Location = new System.Drawing.Point(21, 43);
+            this.lblRatio.Location = new System.Drawing.Point(16, 35);
+            this.lblRatio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRatio.Name = "lblRatio";
-            this.lblRatio.Size = new System.Drawing.Size(45, 20);
+            this.lblRatio.Size = new System.Drawing.Size(39, 17);
             this.lblRatio.TabIndex = 4;
             this.lblRatio.Text = "Tỷ lệ";
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(451, 558);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSave.Image = global::ManageHotel.Properties.Resources.Edit;
+            this.btnSave.Location = new System.Drawing.Point(298, 453);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(147, 44);
+            this.btnSave.Size = new System.Drawing.Size(150, 44);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Lưu thay đổi";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FormRules
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 625);
+            this.ClientSize = new System.Drawing.Size(468, 513);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.gbSurcharge);
             this.Controls.Add(this.gbCustomerProperties);
             this.Controls.Add(this.gbRoomProperties);
             this.Controls.Add(this.lblRules);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormRules";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Quy định";
             this.gbRoomProperties.ResumeLayout(false);
             this.gbRoomProperties.PerformLayout();

@@ -20,10 +20,21 @@ namespace ManageHotel
                     month.Add(element);
             month.Sort();   //sắp xếp lại các tháng theo thứ tự tăng dần
             cbMonthRevenue.DataSource = month;  //đổ danh sách tháng vào comboBox
-            cbMonthDensity.DataSource = month;
+            cbMonthDensity.DataSource = month;  //tương tự
         }
 
         #region Functions for event
+        private void CreateRevenueChart()   //tạo biểu đồ doanh thu
+        {
+            chartRevenue.Series["Doanh thu"].Points.Clear();    //reset biểu đồ hiện tại
+            for (int i = 0; i < dgvRevenue.Rows.Count; i++) //duyệt qua cột loại phòng và doanh thu
+            {
+                string roomKind = dgvRevenue.Rows[i].Cells[1].Value.ToString(); //loại phòng
+                int revenue = Convert.ToInt32(dgvRevenue.Rows[i].Cells[2].Value.ToString());    //doanh thu
+                chartRevenue.Series["Doanh thu"].Points.AddXY(roomKind, revenue);   //vẽ biểu đồ cột
+            }
+        }
+
         private void RefreshRevenueTab(string month)    //làm mới dữ liệu bảng báo cáo doanh thu theo loại phòng
         {
             List<ReportRevenue> sources = new List<ReportRevenue>();
@@ -55,6 +66,19 @@ namespace ManageHotel
             dgvRevenue.Columns[1].HeaderText = "Loại phòng";
             dgvRevenue.Columns[2].HeaderText = "Doanh thu";
             dgvRevenue.Columns[3].HeaderText = "Tỷ lệ";
+
+            CreateRevenueChart();   //vẽ biểu đồ doanh thu theo loại phòng
+        }
+
+        private void CreateDensityChart()   //tạo biểu đồ mật độ
+        {
+            chartDensity.Series[0].Points.Clear();  //reset biểu đồ hiện tại
+            for (int i = 0; i < dgvDensity.Rows.Count; i++) //duyệt qua cột phòng và số ngày thuê
+            {
+                string room = dgvDensity.Rows[i].Cells[1].Value.ToString(); //cột phòng
+                int countRented = Convert.ToInt32(dgvDensity.Rows[i].Cells[2].Value.ToString());    //cột số ngày thuê
+                chartDensity.Series[0].Points.AddXY(room, countRented); //vẽ biểu đồ cột
+            }
         }
 
         private void RefreshDensityTab(string month)    //làm mới dữ liệu bảng báo cáo số ngày thuê theo phòng
@@ -93,6 +117,8 @@ namespace ManageHotel
             dgvDensity.Columns[1].HeaderText = "Phòng";
             dgvDensity.Columns[2].HeaderText = "Số ngày thuê";
             dgvDensity.Columns[3].HeaderText = "Tỷ lệ";
+
+            CreateDensityChart();   //vẽ biểu đồ mật độ theo phòng
         }
         #endregion
 

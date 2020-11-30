@@ -17,6 +17,8 @@ namespace ManageHotel
         public FormRules()
         {
             InitializeComponent();
+            if (fRoomCategories.CurrentUser.account != "admin") //nếu tài khoản là admin thì mới được thay đổi quy định
+                btnSave.Enabled = false;
             FetchRules();
         }
 
@@ -54,10 +56,8 @@ namespace ManageHotel
         private void btnSave_Click(object sender, EventArgs e)  //sự kiện cập nhật quy định
         {
             ChangeRules();
-            DialogResult result = MessageBox.Show("Lưu quy định thành công. Vui lòng khởi động lại phần mềm để cập nhật.\n" +
-                "Bạn có muốn thoát?", "Quy định", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-            if (result == DialogResult.Yes)
-                Application.Exit();
+            DialogResult result = MessageBox.Show("Lưu quy định thành công", "Quy định", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Close();
         }
         #endregion
     }

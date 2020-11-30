@@ -44,6 +44,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +58,12 @@
   <ItemGroup>
     <Compile Include="Customer.cs">
       <DependentUpon>ManageHotelModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccount.Designer.cs">
+      <DependentUpon>FormAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCategory.cs">
       <SubType>Form</SubType>
@@ -75,6 +82,12 @@
     </Compile>
     <Compile Include="FormCustomer.Designer.cs">
       <DependentUpon>FormCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FormReport.cs">
       <SubType>Form</SubType>
@@ -109,6 +122,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ManageHotelModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Manager.cs">
+      <DependentUpon>ManageHotelModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomCategory.cs">
@@ -123,6 +139,9 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>ManageHotelModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormAccount.resx">
+      <DependentUpon>FormAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCategory.resx">
       <DependentUpon>FormCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCustomer.resx">
       <DependentUpon>FormCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReport.resx">
       <DependentUpon>FormReport.cs</DependentUpon>
@@ -149,6 +171,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="ManageHotelModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -182,6 +205,15 @@
       <DependentUpon>ManageHotelModel.edmx</DependentUpon>
       <LastGenOutput>ManageHotelModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\Configuration.ico" />
+    <None Include="Resources\Key.ico" />
+    <None Include="Resources\Statistics.ico" />
+    <None Include="Resources\Scan.ico" />
+    <None Include="Resources\Home.ico" />
+    <None Include="Resources\Edit.ico" />
+    <None Include="Resources\Delete.ico" />
+    <None Include="Resources\Cash.ico" />
+    <None Include="Resources\Add1.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -82,29 +83,50 @@ namespace ManageHotel
         }
 
         #region Functions for event
+        private void PrintFile(string Path, string Content) //hàm in dữ liệu thanh toán ra file
+        {
+            FileStream fstream = new FileStream(Path, FileMode.Append, FileAccess.Write, FileShare.None);
+            StreamWriter writer = new StreamWriter(fstream);
+            writer.Write(Content);
+            writer.Close();
+            fstream.Close();
+        }
+
         private void Pay()  //hàm thanh toán phòng hiện tại
         {
             if (dgvRentRoom.Rows.Count != 0)    //kiểm tra bảng có dữ liệu hay không
             {
                 string roomName = dgvRentRoom.SelectedCells[0].OwningRow.Cells["name"].Value.ToString();
                 List<Customer> customer = entities.Customers.Where(p => p.roomName == roomName).ToList();
-                string payString = "";
+                string printString = "";
 
-                payString += "Phòng: " + customer[0].roomName + "\n";
+                printString += "KHÁCH SẠN SƠN TÙNG" +
+                    "\nSĐT: 0704739698" +
+                    "\nĐịa chỉ: Nguyễn Tri Phương, Phường 9, Quận 5, TP.HCM" +
+                    "\n\nPhòng: " + customer[0].roomName + "\n";
                 for (int i = 0; i < customer.Count; i++)
                 {
-                    payString += "Tên khách hàng: " + customer[i].name +
+                    printString += "Tên khách hàng: " + customer[i].name +
                     ".\nCăn cước: " + customer[i].identityNumber +
                     ".\nĐịa chỉ: " + customer[i].address +
-                    ".\nNgày thuê: " + customer[i].rentedDay.ToString() + ".\n\n";
+                    ".\nNgày thuê: " + customer[i].rentedDay.ToString() + ".\n";
                 }
-                payString += "Khách hàng phải thanh toán " + txtPriceValue.Text +
-                    ".\nBạn thực sự muốn thanh toán?";    //tạo chuỗi thông báo tổng kết dữ liệu cho khách hàng
+                printString += "\nKHÁCH HÀNG PHẢI THANH TOÁN " + txtPriceValue.Text +
+                    ".\nNhân viên: " + fRoomCategories.CurrentUser.name +
+                    ".\nThời điểm: " + DateTime.Now.ToString() + ".";   //chuỗi printString để ghi ra file
 
-                DialogResult dialogResult = MessageBox.Show(payString, "Thanh toán", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                string payString = printString + "\n\nBạn thực sự muốn thanh toán?";    //tạo chuỗi thông báo tổng kết dữ liệu cho khách hàng (xuất ra MessageBox)
+
+                DialogResult dialogResult = MessageBox.Show(printString, "Thanh toán", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.OK)    //nếu thật sự muốn thoát
                 {
-                    MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    string FileName = DateTime.Now.ToString();
+                    FileName = FileName.Replace("/", string.Empty);
+                    FileName = FileName.Replace(":", string.Empty);
+                    FileName = FileName.Replace(" ", "_");  //khối lệnh này để tạo tên file từ thởi gian hiện tại, xóa / và : ra khỏi tên vì những ký tự này không hợp lệ
+
+                    PrintFile(@Path.GetDirectoryName(Application.ExecutablePath).ToString() + @"\" + FileName + ".txt", printString);   //gọi hàm ghi file
+                    MessageBox.Show("Thanh toán thành công. Hóa đơn được lưu ở\n" + Path.GetDirectoryName(Application.ExecutablePath).ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     List<Customer> listCustomerName = entities.Customers.Where(p => p.roomName == roomName).Select(p => p).ToList();
 
                     RoomHistory history = new RoomHistory() //thêm vào lịch sử thuê phòng để dành truy vấn báo cáo

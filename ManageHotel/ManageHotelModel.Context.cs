@@ -26,6 +26,7 @@ namespace ManageHotel
         }
     
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<RoomCategory> RoomCategories { get; set; }
         public virtual DbSet<RoomHistory> RoomHistories { get; set; }
         public virtual DbSet<Rule> Rules { get; set; }

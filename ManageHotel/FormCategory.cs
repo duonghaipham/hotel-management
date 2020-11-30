@@ -17,13 +17,15 @@ namespace ManageHotel
         public static int maximumCustomer;  //số khách hàng tối đa trong một phòng
         public static float surchargeRatio; //tỷ lệ phụ thu
         public static int surchargeBeginning;   //phụ thu khi lượng khách bắt đầu là
+        public static Manager CurrentUser;  //tài khoản hiện tại
         public static Dictionary<string, float> kindAndPrice = new Dictionary<string, float>(); //ánh xạ giữa loại phòng và giá
         public static Dictionary<string, float> kindAndCoefficient = new Dictionary<string, float>();   //ánh xạ giữa loại khách hàng và hệ số
         #endregion
 
-        public fRoomCategories()
+        public fRoomCategories(Manager currentUser)
         {
             InitializeComponent();
+            CurrentUser = currentUser;  //lấy người dùng hiện tại
             LoadRules();        //tải các quy định vào
             RefreshData();      //làm mới dữ liệu
             AddBinding();       //tạo DataBinding
@@ -45,15 +47,18 @@ namespace ManageHotel
             for (int i = 0; i < nRoomKind; i++)
             {
                 string[] singleKind = strRoomKind[i].Split(',');
-                kindAndPrice.Add(singleKind[0], float.Parse(singleKind[1]));
+                if (!kindAndPrice.Keys.Contains(singleKind[0]))
+                    kindAndPrice.Add(singleKind[0], float.Parse(singleKind[1]));
             }
             //tokenize chuỗi từ DB để thêm vào ánh xạ giữa khách hàng và hệ số
             string[] strCustomerKind = rule.customerKindCoefficient.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             for (int i = 0; i < nCustomerKind; i++)
             {
                 string[] singleKind = strCustomerKind[i].Split(',');
-                kindAndCoefficient.Add(singleKind[0], float.Parse(singleKind[1]));
+                if (!kindAndCoefficient.Keys.Contains(singleKind[0]))
+                    kindAndCoefficient.Add(singleKind[0], float.Parse(singleKind[1]));
             }
+
             cbRoomKind.DataSource = kindAndPrice.Keys.ToList();
         }
 
@@ -214,10 +219,24 @@ namespace ManageHotel
             form.ShowDialog();
         }
 
+        private void tsmiAccount_Click(object sender, EventArgs e)  //sự kiện vào form đổi mật khẩu
+        {
+            fAccount form = new fAccount();
+            form.ShowDialog();
+            Show();
+        }
+
+        private void tsmiLogout_Click(object sender, EventArgs e)   //sự kiện đăng xuất
+        {
+            Close();
+        }
+
         private void tsmiExit_Click(object sender, EventArgs e) //sự kiện thoát chương trình
         {
             Application.Exit();
         }
         #endregion
+
+
     }
 }

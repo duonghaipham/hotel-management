@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fRoomList));
             this.dgvRoomList = new System.Windows.Forms.DataGridView();
             this.lblRoomList = new System.Windows.Forms.Label();
-            this.btnPay = new System.Windows.Forms.Button();
             this.cbRoomKind = new System.Windows.Forms.ComboBox();
             this.txtRoomPrice = new System.Windows.Forms.TextBox();
             this.lblRoomPrice = new System.Windows.Forms.Label();
-            this.btnView = new System.Windows.Forms.Button();
             this.lblRoomKind = new System.Windows.Forms.Label();
             this.lblRoomName = new System.Windows.Forms.Label();
             this.txtRoomName = new System.Windows.Forms.TextBox();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoomList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,17 +62,6 @@
             this.lblRoomList.Size = new System.Drawing.Size(217, 25);
             this.lblRoomList.TabIndex = 2;
             this.lblRoomList.Text = "DANH SÁCH PHÒNG";
-            // 
-            // btnPay
-            // 
-            this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPay.Location = new System.Drawing.Point(347, 109);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(215, 39);
-            this.btnPay.TabIndex = 5;
-            this.btnPay.Text = "Thanh toán...";
-            this.btnPay.UseVisualStyleBackColor = true;
-            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // cbRoomKind
             // 
@@ -103,17 +93,6 @@
             this.lblRoomPrice.TabIndex = 52;
             this.lblRoomPrice.Text = "Giá";
             // 
-            // btnView
-            // 
-            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(347, 61);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(214, 39);
-            this.btnView.TabIndex = 4;
-            this.btnView.Text = "Xem thông tin/Thuê phòng...";
-            this.btnView.UseVisualStyleBackColor = true;
-            this.btnView.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // lblRoomKind
             // 
             this.lblRoomKind.AutoSize = true;
@@ -143,6 +122,32 @@
             this.txtRoomName.Size = new System.Drawing.Size(242, 22);
             this.txtRoomName.TabIndex = 1;
             // 
+            // btnPay
+            // 
+            this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPay.Image = global::ManageHotel.Properties.Resources.Cash;
+            this.btnPay.Location = new System.Drawing.Point(461, 61);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(101, 87);
+            this.btnPay.TabIndex = 5;
+            this.btnPay.Text = "Thanh toán...";
+            this.btnPay.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
+            // btnView
+            // 
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.Image = global::ManageHotel.Properties.Resources.Key;
+            this.btnView.Location = new System.Drawing.Point(347, 61);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(100, 87);
+            this.btnView.TabIndex = 4;
+            this.btnView.Text = "Thuê phòng...";
+            this.btnView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // fRoomList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +164,7 @@
             this.Controls.Add(this.lblRoomList);
             this.Controls.Add(this.dgvRoomList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "fRoomList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

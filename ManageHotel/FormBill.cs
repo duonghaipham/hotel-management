@@ -175,6 +175,14 @@ namespace ManageHotel
             Pay();
             RefreshData();
         }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            fRoomCategories form = new fRoomCategories(fRoomCategories.CurrentUser);
+            Hide();
+            form.ShowDialog();
+            Close();
+        }
         #endregion
     }
 }

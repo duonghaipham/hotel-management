@@ -56,9 +56,9 @@ namespace ManageHotel
 
             //truy vấn những trường cần thiết, đổ vào DataGridView
             var ambiguosData = (from p in entities.Customers.AsEnumerable()
-                        where p.roomName == cbRoom.SelectedValue.ToString()
-                        orderby p.ordinalNumber ascending
-                        select new { p.ordinalNumber, p.name, p.kind, p.identityNumber, p.address }).ToList();
+                                where p.roomName == cbRoom.SelectedValue.ToString()
+                                orderby p.ordinalNumber ascending
+                                select new { p.ordinalNumber, p.name, p.kind, p.identityNumber, p.address }).ToList();
 
             source.DataSource = ambiguosData;
             dgvTicket.DataSource = source;
@@ -82,7 +82,7 @@ namespace ManageHotel
         }
 
         #region Functions for event
-        private void AddCustomer()  //thêm khách hàng vào phòng (cho thuê)
+        private bool AddCustomer()  //thêm khách hàng vào phòng (cho thuê), thêm thành công trả về true
         {
             //ràng buộc các trường dữ liệu phía dưới không được là null, ký tự trắng hay rỗng
             if (string.IsNullOrEmpty(txtCustomerName.Text) || string.IsNullOrWhiteSpace(txtCustomerName.Text)
@@ -91,15 +91,23 @@ namespace ManageHotel
             || string.IsNullOrEmpty(cbCustomerKind.SelectedValue.ToString()))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Không thể thêm", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
             }
             else
             {   //ràng buộc phòng đã đầy (biến số người tối đa trong phòng được lấy từ form Danh mục)
                 if (entities.Customers.Where(p => p.roomName == cbRoom.SelectedValue.ToString()).ToList().Count >= fRoomCategories.maximumCustomer)
                 {
                     MessageBox.Show("Phòng đã đầy, vui lòng chọn phòng khác", "Không thể thêm", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return false;
                 }
                 else
-                {   //dắt này mới bắt đầu thuê
+                { 
+                    if (entities.Customers.Where(p => p.identityNumber == txtIdentity.Text).SingleOrDefault() != null)
+                    {
+                        MessageBox.Show("Chứng minh nhân dân trùng, vui lòng kiểm tra lại thông tin khách hàng", "Không thể thêm", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        return false;
+                    }
+                    //dắt này mới bắt đầu thuê
                     Customer customer = new Customer()
                     {
                         name = txtCustomerName.Text,
@@ -117,14 +125,17 @@ namespace ManageHotel
                     entities.SaveChanges();
                 }
             }
+            return true;
         }
 
-        private void EditCustomer() //cập nhật thông tin cho khách hàng
+        private bool EditCustomer() //cập nhật thông tin cho khách hàng, cập nhật thành công trả về true
         {
-            if (txtCustomerName.Text == "") //khi tên của khách hàng là rỗng
+            if (string.IsNullOrEmpty(txtCustomerName.Text) || string.IsNullOrWhiteSpace(txtCustomerName.Text)
+                || cbRoom.DataSource == null
+                || entities.Customers.Where(p => p.roomName == cbRoom.SelectedValue.ToString()).Count() == 0) //khi tên của khách hàng là rỗng
             {
                 MessageBox.Show("Không tìm thấy thông tin hiện tại để cập nhật", "Không thể lưu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
             string name = dgvTicket.SelectedCells[0].OwningRow.Cells[1].Value.ToString();
             string identityNumber = dgvTicket.SelectedCells[0].OwningRow.Cells[3].Value.ToString();
@@ -136,6 +147,8 @@ namespace ManageHotel
             customer.rentedDay = dtpRentRoom.Value;
             customer.RoomCategory.rentedDay = dtpRentRoom.Value;
             entities.SaveChanges();
+
+            return true;
         }
         #endregion
 
@@ -147,14 +160,14 @@ namespace ManageHotel
 
         private void btnAdd_Click(object sender, EventArgs e)   //sự kiện thêm khách hàng
         {
-            AddCustomer();
-            RefreshData();
+            if (AddCustomer())
+                RefreshData();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)  //sự kiện chỉnh sửa khách hàng
         {
-            EditCustomer();
-            RefreshData();
+            if (EditCustomer())
+                RefreshData();
         }
 
         private void btnPay_Click(object sender, EventArgs e)   //sự kiện qua form Thanh toán

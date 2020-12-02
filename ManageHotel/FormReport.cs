@@ -8,19 +8,28 @@ namespace ManageHotel
 {
     public partial class FormReport : Form
     {
+        
         private ManageHotelEntities entities = fRoomCategories.entities;
+        private List<MyDate> month = new List<MyDate>();    //danh sách tháng (định dạng mm/yyyy)
         public FormReport()
         {
             InitializeComponent();
             //truy vấn lấy danh sách tất cả các tháng (có thể trùng lặp)
-            List<int> rawMonth = entities.RoomHistories.Select(p => p.rentedDay.Value.Month).ToList();
-            List<int> month = new List<int>();
-            foreach (int element in rawMonth)   //dùng vòng foreach để chọn lại các tháng (không trùng)
-                if (!month.Contains(element))
-                    month.Add(element);
+            List<DateTime> rawMonth = entities.RoomHistories.Select(p => (DateTime)p.rentedDay).ToList();
+
+            foreach (DateTime myDate in rawMonth)    //dùng vòng foreach để chọn lại các tháng (không trùng)
+            {
+                MyDate currentDate = new MyDate(myDate);
+                if (month.Where(p => p.Value == currentDate.Value).ToList().Count == 0)
+                    month.Add(currentDate);
+            }
             month.Sort();   //sắp xếp lại các tháng theo thứ tự tăng dần
-            cbMonthRevenue.DataSource = month;  //đổ danh sách tháng vào comboBox
-            cbMonthDensity.DataSource = month;  //tương tự
+            List<string> actualMonth = new List<string>();  //tháng thật sự
+            foreach (MyDate myDate in month)    //trích ra tháng kiểu string để đổ vào comboBox
+                actualMonth.Add(myDate.Value);
+            
+            cbMonthRevenue.DataSource = new List<string>(actualMonth);  //đổ danh sách tháng vào comboBox
+            cbMonthDensity.DataSource = new List<string>(actualMonth);  //tương tự
         }
 
         #region Functions for event
@@ -35,7 +44,7 @@ namespace ManageHotel
             }
         }
 
-        private void RefreshRevenueTab(string month)    //làm mới dữ liệu bảng báo cáo doanh thu theo loại phòng
+        private void RefreshRevenueTab(int indexMonth)    //làm mới dữ liệu bảng báo cáo doanh thu theo loại phòng
         {
             List<ReportRevenue> sources = new List<ReportRevenue>();
             List<string> category = fRoomCategories.kindAndPrice.Keys.ToList(); //lấy danh sách các loại phòng
@@ -44,8 +53,11 @@ namespace ManageHotel
             for (int i = 0; i < category.Count; i++)    //traverse hết danh mục phần
             {
                 string kind = category[i];  //danh mục hiện tại
+                string monthComponent = month.ElementAt(indexMonth).Month;
+                string yearComponent = month.ElementAt(indexMonth).Year;
                 List<RoomHistory> histories = (from p in entities.RoomHistories
-                                              where p.kind == kind && p.rentedDay.Value.Month.ToString() == month
+                                               where p.kind == kind && p.rentedDay.Value.Month.ToString() == monthComponent
+                                                                    && p.rentedDay.Value.Year.ToString() == yearComponent
                                               select p).ToList();   //truy vấn đúng danh mục hiện tại
 
                 ReportRevenue currentRoom = new ReportRevenue();
@@ -81,7 +93,7 @@ namespace ManageHotel
             }
         }
 
-        private void RefreshDensityTab(string month)    //làm mới dữ liệu bảng báo cáo số ngày thuê theo phòng
+        private void RefreshDensityTab(int indexMonth)    //làm mới dữ liệu bảng báo cáo số ngày thuê theo phòng
         {
             List<ReportDensity> sources = new List<ReportDensity>();
             List<string> tempRoomName = entities.RoomHistories.Select(p => p.name).ToList(); //lấy danh sách tên phòng (có thể trùng)
@@ -95,8 +107,11 @@ namespace ManageHotel
             for (int i = 0; i < roomName.Count; i++)    //traverse hết danh sách tên phòng
             {
                 string name = roomName[i];  //tên hiện tại
+                string monthComponent = month.ElementAt(indexMonth).Month;
+                string yearComponent = month.ElementAt(indexMonth).Year;
                 List<RoomHistory> histories = (from p in entities.RoomHistories
-                                               where p.name == name && p.rentedDay.Value.Month.ToString() == month
+                                               where p.name == name && p.rentedDay.Value.Month.ToString() == monthComponent
+                                                                    && p.rentedDay.Value.Year.ToString() == yearComponent
                                                select p).ToList();  //truy vấn đúng phòng hiện tại
 
                 ReportDensity currentRoom = new ReportDensity();
@@ -125,12 +140,12 @@ namespace ManageHotel
         #region Events
         private void cbMonth_SelectedValueChanged(object sender, EventArgs e)   //sự kiện thay đổi giá trị của cbMonth của tab Doanh thu
         {
-            RefreshRevenueTab(cbMonthRevenue.SelectedValue.ToString());
+            RefreshRevenueTab(cbMonthRevenue.SelectedIndex);    //truyền vào index để ánh xạ lên month
         }
 
         private void cbMonthDensity_SelectedValueChanged(object sender, EventArgs e)    //sự kiện thay đổi giá trị của cbMonth của tab Mật độ
         {
-            RefreshDensityTab(cbMonthDensity.SelectedValue.ToString());
+            RefreshDensityTab(cbMonthDensity.SelectedIndex);    //truyền vào index để ánh xạ lên month
         }
         #endregion
     }
@@ -192,6 +207,33 @@ namespace ManageHotel
         public string Name { get => name; set => name = value; }
         public int CountRented { get => countRented; set => countRented = value; }
         public float Ratio { get => ratio; set => ratio = value; }
+    }
+
+    public class MyDate: IComparable<MyDate>    //lớp định nghĩa kiểu dữ liệu chỉ có ngày và tháng (để đổ vào comboBox)
+    {
+        private string month;
+        private string year;
+
+        public MyDate(DateTime dateTime)
+        {
+            month = dateTime.Month.ToString();
+            year = dateTime.Year.ToString();
+        }
+
+        public string Value
+        {
+            get { return month + "/" + year; }
+        }
+
+        int IComparable<MyDate>.CompareTo(MyDate other)
+        {
+            string thisDate = year + "/" + month;
+            string otherDate = other.Year + "/" + other.Month;
+            return thisDate.CompareTo(otherDate);
+        }
+
+        public string Month { get => month; set => month = value; }
+        public string Year { get => year; set => year = value; }
     }
     #endregion
 }

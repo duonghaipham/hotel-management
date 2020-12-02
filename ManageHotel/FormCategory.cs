@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -33,6 +34,9 @@ namespace ManageHotel
 
         private void LoadRules()
         {
+            kindAndPrice.Clear();   //reset lại ánh xạ kind và price
+            kindAndCoefficient.Clear(); //reset lại ánh xạ kind và coefficient
+
             //Tải những quy định từ DB lên các biến public để sử dụng chung cho tất cả các form
             Rule rule = entities.Rules.FirstOrDefault();
 
@@ -75,8 +79,8 @@ namespace ManageHotel
 
             //truy vấn những trường cần thiết, đổ vào DataGridView
             var ambiguosData = (from p in entities.RoomCategories
-                        orderby p.id ascending
-                        select new { p.ordinalNumber, p.name, p.kind, p.price, p.note }).ToList();
+                                orderby p.ordinalNumber ascending
+                                select new { p.ordinalNumber, p.name, p.kind, p.price, p.note }).ToList();
 
             source.DataSource = ambiguosData;
             dgvRoomCategories.DataSource = source;
@@ -98,13 +102,14 @@ namespace ManageHotel
         }
 
         #region Functions for event
-        private void AddRoom()
+        private bool AddRoom()  //hàm thêm phòng, nếu thêm thành công trả về true, ngược lại false
         {
-            if (txtRoomName.Text == "") //tên phòng rỗng
+            if (string.IsNullOrEmpty(txtRoomName.Text) || string.IsNullOrWhiteSpace(txtRoomName.Text) || cbRoomKind.SelectedItem == null) //tên phòng rỗng hoặc không có phòng nào trong danh sách phòng
             {
-                MessageBox.Show("Vui lòng nhập tên phòng", "Tên phòng rỗng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
+
             //tạo một thể hiện mới cho đối tượng RoomCategory
             RoomCategory roomCategory = new RoomCategory()
             {
@@ -119,79 +124,86 @@ namespace ManageHotel
             };
             //xử lý trường hợp tên phòng hiện tại có tồn tại hay chưa
             List<string> roomName = entities.RoomCategories.Select(p => p.name).ToList();
+
             if (!roomName.Contains(roomCategory.name))
             {
                 entities.RoomCategories.Add(roomCategory);
                 entities.SaveChanges();
+                return true;
             }
             else
+            {
                 MessageBox.Show("Vui lòng chọn một tên phòng khác", "Tên đã tồn tại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
         }
 
-        private void DeleteRoom()
+        private bool DeleteRoom()   //hàm xóa phòng, nếu xóa thành công trả về true, ngược lại false
         {
             int countRoom = entities.RoomCategories.Count();    //đếm số phòng
             if (int.Parse(countRoom.ToString()) != 0)   //số phòng bằng 0 thì không có gì để xóa
             {
-                RoomCategory roomCategory = entities.RoomCategories.Where(p => p.name == txtRoomName.Text).SingleOrDefault();
+                string name = dgvRoomCategories.SelectedCells[0].OwningRow.Cells["name"].Value.ToString();
+                RoomCategory roomCategory = entities.RoomCategories.Find(name);
+
                 if (entities.Customers.Where(p => p.roomName == roomCategory.name).ToList().Count == 0) //nếu phòng đang được thuê thì ai cho xóa
                 {
                     entities.RoomCategories.Remove(roomCategory);
                     entities.SaveChanges();
+                    return true;
+                }
+
+                MessageBox.Show("Phòng này đang trong tình trạng được thuê.\n" +
+                    "Để xóa vui lòng thanh toán phòng trước!", "Không thể xóa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return false;
+        }
+
+        private bool EditRoom() //hàm sửa phòng, nếu sửa thành công trả về true, ngược lại false
+        {
+            if (entities.RoomCategories.Count() != 0)   //không có phòng nào
+            {
+                string name = dgvRoomCategories.SelectedCells[0].OwningRow.Cells["name"].Value.ToString();  //phòng của row hiện tại
+                RoomCategory roomCategory = entities.RoomCategories.Find(name);
+
+                if (roomCategory.name != txtRoomName.Text)
+                {
+                    MessageBox.Show("Không thể sửa tên phòng. Để sửa vui lòng xóa và tạo lại phòng mới!", "Không thể sửa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                if (entities.Customers.Where(p => p.roomName == roomCategory.name).ToList().Count == 0) //nếu phòng đang được thuê thì ai cho sửa
+                {
+                    roomCategory.kind = cbRoomKind.SelectedItem.ToString();
+                    roomCategory.price = Convert.ToInt32(txtRoomPrice.Text);
+                    roomCategory.note = txtNote.Text;
+                    entities.SaveChanges();
+                    return true;
                 }
                 else
                     MessageBox.Show("Phòng này đang trong tình trạng được thuê.\n" +
-                        "Để xóa vui lòng thanh toán phòng trước!", "Không thể xóa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            "Để sửa vui lòng thanh toán phòng trước!", "Không thể sửa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
-                MessageBox.Show("Không thể xóa", "Hết dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void EditRoom()
-        {
-            if (txtRoomName.Text == "") //tên phòng rỗng
-            {
-                MessageBox.Show("Vui lòng nhập tên phòng", "Tên phòng rỗng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            string name = dgvRoomCategories.SelectedCells[0].OwningRow.Cells["name"].Value.ToString();
-            RoomCategory roomCategory = entities.RoomCategories.Find(name);
-
-            if (roomCategory.name != txtRoomName.Text)
-            {
-                MessageBox.Show("Không thể sửa tên phòng. Để sửa vui lòng xóa và tạo lại phòng mới!", "Không thể sửa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (entities.Customers.Where(p => p.roomName == roomCategory.name).ToList().Count == 0) //nếu phòng đang được thuê thì ai cho sửa
-            {
-                roomCategory.kind = cbRoomKind.SelectedItem.ToString();
-                roomCategory.price = Convert.ToInt32(txtRoomPrice.Text);
-                roomCategory.note = txtNote.Text;
-                entities.SaveChanges();
-            }
-            else
-                MessageBox.Show("Phòng này đang trong tình trạng được thuê.\n" +
-                        "Để sửa vui lòng thanh toán phòng trước!", "Không thể sửa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
         }
         #endregion
 
         #region Events
         private void btnAdd_Click(object sender, EventArgs e)   //sự kiện thêm
         {
-            AddRoom();
-            RefreshData();
+            if (AddRoom())
+                RefreshData();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)    //sự kiện xóa
         {
-            DeleteRoom();
-            RefreshData();
+            if (DeleteRoom())
+                RefreshData();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)  //sự kiện sửa
         {
-            EditRoom();
-            RefreshData();
+            if (EditRoom())
+                RefreshData();
         }
 
         private void cbRoomKind_SelectedValueChanged(object sender, EventArgs e)    //sự kiện thay đổi comboBox
@@ -211,6 +223,7 @@ namespace ManageHotel
         {
             FormRules form = new FormRules();
             form.ShowDialog();
+            LoadRules();
         }
 
         private void tsmiStatistic_Click(object sender, EventArgs e)    //sự kiện qua form báo cáo
@@ -236,7 +249,5 @@ namespace ManageHotel
             Application.Exit();
         }
         #endregion
-
-
     }
 }

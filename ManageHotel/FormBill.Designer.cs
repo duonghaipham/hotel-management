@@ -133,7 +133,7 @@
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(367, 89);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(157, 26);
+            this.btnSubmit.Size = new System.Drawing.Size(156, 26);
             this.btnSubmit.TabIndex = 1;
             this.btnSubmit.Text = "Tính";
             this.btnSubmit.UseVisualStyleBackColor = false;

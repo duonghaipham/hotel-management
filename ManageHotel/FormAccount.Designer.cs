@@ -41,13 +41,16 @@
             this.lblReNewPassword = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblAsterisk1 = new System.Windows.Forms.Label();
+            this.lblAsterisk2 = new System.Windows.Forms.Label();
+            this.lblAsterisk3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnChangePassword
             // 
             this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.Image = global::ManageHotel.Properties.Resources.Edit;
-            this.btnChangePassword.Location = new System.Drawing.Point(233, 261);
+            this.btnChangePassword.Location = new System.Drawing.Point(243, 262);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(149, 38);
             this.btnChangePassword.TabIndex = 6;
@@ -60,7 +63,7 @@
             // 
             this.txtOldPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtOldPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOldPassword.Location = new System.Drawing.Point(200, 151);
+            this.txtOldPassword.Location = new System.Drawing.Point(211, 151);
             this.txtOldPassword.Name = "txtOldPassword";
             this.txtOldPassword.Size = new System.Drawing.Size(181, 24);
             this.txtOldPassword.TabIndex = 3;
@@ -80,7 +83,7 @@
             // 
             this.txtAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccount.Location = new System.Drawing.Point(200, 116);
+            this.txtAccount.Location = new System.Drawing.Point(211, 116);
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.ReadOnly = true;
             this.txtAccount.Size = new System.Drawing.Size(181, 24);
@@ -110,7 +113,7 @@
             // 
             this.txtNewPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNewPassword.Location = new System.Drawing.Point(200, 186);
+            this.txtNewPassword.Location = new System.Drawing.Point(211, 186);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(181, 24);
             this.txtNewPassword.TabIndex = 4;
@@ -130,7 +133,7 @@
             // 
             this.txtReNewPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtReNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReNewPassword.Location = new System.Drawing.Point(200, 221);
+            this.txtReNewPassword.Location = new System.Drawing.Point(211, 221);
             this.txtReNewPassword.Name = "txtReNewPassword";
             this.txtReNewPassword.Size = new System.Drawing.Size(181, 24);
             this.txtReNewPassword.TabIndex = 5;
@@ -150,7 +153,7 @@
             // 
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(200, 82);
+            this.txtName.Location = new System.Drawing.Point(211, 82);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(181, 24);
@@ -166,12 +169,48 @@
             this.lblName.TabIndex = 16;
             this.lblName.Text = "Tên tài khoản";
             // 
+            // lblAsterisk1
+            // 
+            this.lblAsterisk1.AutoSize = true;
+            this.lblAsterisk1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk1.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk1.Location = new System.Drawing.Point(186, 147);
+            this.lblAsterisk1.Name = "lblAsterisk1";
+            this.lblAsterisk1.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisk1.TabIndex = 47;
+            this.lblAsterisk1.Text = "*";
+            // 
+            // lblAsterisk2
+            // 
+            this.lblAsterisk2.AutoSize = true;
+            this.lblAsterisk2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk2.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk2.Location = new System.Drawing.Point(186, 182);
+            this.lblAsterisk2.Name = "lblAsterisk2";
+            this.lblAsterisk2.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisk2.TabIndex = 48;
+            this.lblAsterisk2.Text = "*";
+            // 
+            // lblAsterisk3
+            // 
+            this.lblAsterisk3.AutoSize = true;
+            this.lblAsterisk3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk3.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk3.Location = new System.Drawing.Point(186, 217);
+            this.lblAsterisk3.Name = "lblAsterisk3";
+            this.lblAsterisk3.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisk3.TabIndex = 49;
+            this.lblAsterisk3.Text = "*";
+            // 
             // fAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(420, 336);
+            this.Controls.Add(this.lblAsterisk3);
+            this.Controls.Add(this.lblAsterisk2);
+            this.Controls.Add(this.lblAsterisk1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtReNewPassword);
@@ -210,5 +249,8 @@
         private System.Windows.Forms.Label lblReNewPassword;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblAsterisk1;
+        private System.Windows.Forms.Label lblAsterisk2;
+        private System.Windows.Forms.Label lblAsterisk3;
     }
 }

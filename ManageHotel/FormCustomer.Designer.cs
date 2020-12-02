@@ -46,6 +46,11 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnPay = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.lblAsterisk1 = new System.Windows.Forms.Label();
+            this.lblAsterisk2 = new System.Windows.Forms.Label();
+            this.lblAsterisk3 = new System.Windows.Forms.Label();
+            this.lblAsterisk4 = new System.Windows.Forms.Label();
+            this.lblAsterisk5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,9 +93,9 @@
             this.cbRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRoom.FormattingEnabled = true;
-            this.cbRoom.Location = new System.Drawing.Point(99, 58);
+            this.cbRoom.Location = new System.Drawing.Point(122, 58);
             this.cbRoom.Name = "cbRoom";
-            this.cbRoom.Size = new System.Drawing.Size(150, 24);
+            this.cbRoom.Size = new System.Drawing.Size(201, 24);
             this.cbRoom.TabIndex = 1;
             this.cbRoom.SelectedValueChanged += new System.EventHandler(this.cbRoom_SelectedValueChanged);
             // 
@@ -98,7 +103,7 @@
             // 
             this.lblRentRoom.AutoSize = true;
             this.lblRentRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRentRoom.Location = new System.Drawing.Point(257, 62);
+            this.lblRentRoom.Location = new System.Drawing.Point(342, 62);
             this.lblRentRoom.Name = "lblRentRoom";
             this.lblRentRoom.Size = new System.Drawing.Size(69, 16);
             this.lblRentRoom.TabIndex = 5;
@@ -108,19 +113,23 @@
             // 
             this.dtpRentRoom.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
             this.dtpRentRoom.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dtpRentRoom.CustomFormat = "dd/MM/yyyy";
             this.dtpRentRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpRentRoom.Location = new System.Drawing.Point(329, 59);
+            this.dtpRentRoom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpRentRoom.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dtpRentRoom.Location = new System.Drawing.Point(418, 59);
             this.dtpRentRoom.Name = "dtpRentRoom";
-            this.dtpRentRoom.Size = new System.Drawing.Size(227, 22);
+            this.dtpRentRoom.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dtpRentRoom.Size = new System.Drawing.Size(138, 22);
             this.dtpRentRoom.TabIndex = 6;
             // 
             // txtCustomerName
             // 
             this.txtCustomerName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerName.Location = new System.Drawing.Point(99, 92);
+            this.txtCustomerName.Location = new System.Drawing.Point(122, 92);
             this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(150, 22);
+            this.txtCustomerName.Size = new System.Drawing.Size(201, 22);
             this.txtCustomerName.TabIndex = 2;
             // 
             // lblCustomerName
@@ -139,9 +148,9 @@
             this.cbCustomerKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCustomerKind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCustomerKind.FormattingEnabled = true;
-            this.cbCustomerKind.Location = new System.Drawing.Point(99, 126);
+            this.cbCustomerKind.Location = new System.Drawing.Point(122, 126);
             this.cbCustomerKind.Name = "cbCustomerKind";
-            this.cbCustomerKind.Size = new System.Drawing.Size(150, 24);
+            this.cbCustomerKind.Size = new System.Drawing.Size(201, 24);
             this.cbCustomerKind.TabIndex = 3;
             // 
             // lblCustomerKind
@@ -168,9 +177,9 @@
             // 
             this.txtIdentity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtIdentity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentity.Location = new System.Drawing.Point(99, 160);
+            this.txtIdentity.Location = new System.Drawing.Point(122, 160);
             this.txtIdentity.Name = "txtIdentity";
-            this.txtIdentity.Size = new System.Drawing.Size(150, 22);
+            this.txtIdentity.Size = new System.Drawing.Size(201, 22);
             this.txtIdentity.TabIndex = 4;
             // 
             // lblAddress
@@ -187,9 +196,9 @@
             // 
             this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(99, 192);
+            this.txtAddress.Location = new System.Drawing.Point(122, 192);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(150, 22);
+            this.txtAddress.Size = new System.Drawing.Size(201, 22);
             this.txtAddress.TabIndex = 5;
             // 
             // btnAdd
@@ -197,9 +206,9 @@
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = global::ManageHotel.Properties.Resources.Add;
-            this.btnAdd.Location = new System.Drawing.Point(260, 92);
+            this.btnAdd.Location = new System.Drawing.Point(342, 92);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(139, 54);
+            this.btnAdd.Size = new System.Drawing.Size(100, 54);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -212,9 +221,9 @@
             this.btnPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.Image = global::ManageHotel.Properties.Resources.Cash;
-            this.btnPay.Location = new System.Drawing.Point(260, 160);
+            this.btnPay.Location = new System.Drawing.Point(342, 160);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(296, 56);
+            this.btnPay.Size = new System.Drawing.Size(214, 56);
             this.btnPay.TabIndex = 9;
             this.btnPay.Text = "Thanh toán/Trả phòng...";
             this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -227,15 +236,70 @@
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Image = global::ManageHotel.Properties.Resources.Edit;
-            this.btnEdit.Location = new System.Drawing.Point(418, 92);
+            this.btnEdit.Location = new System.Drawing.Point(456, 92);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(139, 54);
+            this.btnEdit.Size = new System.Drawing.Size(100, 54);
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "Lưu";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // lblAsterisk1
+            // 
+            this.lblAsterisk1.AutoSize = true;
+            this.lblAsterisk1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk1.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk1.Location = new System.Drawing.Point(92, 54);
+            this.lblAsterisk1.Name = "lblAsterisk1";
+            this.lblAsterisk1.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisk1.TabIndex = 46;
+            this.lblAsterisk1.Text = "*";
+            // 
+            // lblAsterisk2
+            // 
+            this.lblAsterisk2.AutoSize = true;
+            this.lblAsterisk2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk2.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk2.Location = new System.Drawing.Point(92, 88);
+            this.lblAsterisk2.Name = "lblAsterisk2";
+            this.lblAsterisk2.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisk2.TabIndex = 47;
+            this.lblAsterisk2.Text = "*";
+            // 
+            // lblAsterisk3
+            // 
+            this.lblAsterisk3.AutoSize = true;
+            this.lblAsterisk3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk3.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk3.Location = new System.Drawing.Point(92, 122);
+            this.lblAsterisk3.Name = "lblAsterisk3";
+            this.lblAsterisk3.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisk3.TabIndex = 48;
+            this.lblAsterisk3.Text = "*";
+            // 
+            // lblAsterisk4
+            // 
+            this.lblAsterisk4.AutoSize = true;
+            this.lblAsterisk4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk4.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk4.Location = new System.Drawing.Point(92, 156);
+            this.lblAsterisk4.Name = "lblAsterisk4";
+            this.lblAsterisk4.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisk4.TabIndex = 49;
+            this.lblAsterisk4.Text = "*";
+            // 
+            // lblAsterisk5
+            // 
+            this.lblAsterisk5.AutoSize = true;
+            this.lblAsterisk5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsterisk5.ForeColor = System.Drawing.Color.Red;
+            this.lblAsterisk5.Location = new System.Drawing.Point(92, 188);
+            this.lblAsterisk5.Name = "lblAsterisk5";
+            this.lblAsterisk5.Size = new System.Drawing.Size(17, 24);
+            this.lblAsterisk5.TabIndex = 50;
+            this.lblAsterisk5.Text = "*";
             // 
             // fCustomer
             // 
@@ -244,6 +308,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(574, 551);
+            this.Controls.Add(this.lblAsterisk5);
+            this.Controls.Add(this.lblAsterisk4);
+            this.Controls.Add(this.lblAsterisk3);
+            this.Controls.Add(this.lblAsterisk2);
+            this.Controls.Add(this.lblAsterisk1);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.btnAdd);
@@ -292,5 +361,10 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Label lblAsterisk1;
+        private System.Windows.Forms.Label lblAsterisk2;
+        private System.Windows.Forms.Label lblAsterisk3;
+        private System.Windows.Forms.Label lblAsterisk4;
+        private System.Windows.Forms.Label lblAsterisk5;
     }
 }

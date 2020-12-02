@@ -148,6 +148,7 @@ namespace ManageHotel
             RefreshDensityTab(cbMonthDensity.SelectedIndex);    //truyền vào index để ánh xạ lên month
         }
         #endregion
+
     }
 
     #region Supportive classes definitions

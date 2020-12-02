@@ -111,7 +111,7 @@ namespace ManageHotel
                     ".\nĐịa chỉ: " + customer[i].address +
                     ".\nNgày thuê: " + customer[i].rentedDay.ToString() + ".\n";
                 }
-                printString += "\nKHÁCH HÀNG PHẢI THANH TOÁN " + txtPriceValue.Text +
+                printString += "\nKHÁCH HÀNG PHẢI THANH TOÁN " + txtPriceValue.Text + "vnđ" +
                     ".\nNhân viên: " + fRoomCategories.CurrentUser.name +
                     ".\nThời điểm: " + DateTime.Now.ToString() + ".";   //chuỗi printString để ghi ra file
 
@@ -176,5 +176,14 @@ namespace ManageHotel
             RefreshData();
         }
         #endregion
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            fRoomCategories form = new fRoomCategories(fRoomCategories.CurrentUser);
+            Hide();
+            form.ShowDialog();
+            Show();
+
+        }
     }
 }

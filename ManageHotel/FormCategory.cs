@@ -196,8 +196,14 @@ namespace ManageHotel
 
         private void btnDelete_Click(object sender, EventArgs e)    //sự kiện xóa
         {
-            if (DeleteRoom())
-                RefreshData();
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn xóa phòng này không?", "Xóa phòng", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if(DeleteRoom())
+                  RefreshData();
+            }
+            else if (dialogResult == DialogResult.No)
+                Show();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)  //sự kiện sửa
@@ -246,7 +252,13 @@ namespace ManageHotel
 
         private void tsmiExit_Click(object sender, EventArgs e) //sự kiện thoát chương trình
         {
-            Application.Exit();
+            
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không ?", "Thoát chương trình", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+                Application.Exit();
+            else if (dialogResult == DialogResult.No)
+                Show();
+       
         }
         #endregion
     }

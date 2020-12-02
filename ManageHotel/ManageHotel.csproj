@@ -205,6 +205,11 @@
       <DependentUpon>ManageHotelModel.edmx</DependentUpon>
       <LastGenOutput>ManageHotelModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\download.png" />
+    <None Include="Resources\Untitled2.png" />
+    <None Include="Resources\Untitled1.png" />
+    <None Include="Resources\Untitled.png" />
+    <None Include="Resources\127170495_491434811816583_2469164569743059005_n.jpg" />
     <Content Include="Resources\Configuration.ico" />
     <None Include="Resources\Key.ico" />
     <None Include="Resources\Statistics.ico" />

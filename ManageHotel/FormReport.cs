@@ -133,6 +133,7 @@ namespace ManageHotel
             RefreshDensityTab(cbMonthDensity.SelectedValue.ToString());
         }
         #endregion
+
     }
 
     #region Supportive classes definitions

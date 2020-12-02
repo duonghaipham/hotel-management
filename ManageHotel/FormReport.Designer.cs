@@ -71,6 +71,7 @@ namespace ManageHotel
             // 
             // tpRevenue
             // 
+            this.tpRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.tpRevenue.Controls.Add(this.chartRevenue);
             this.tpRevenue.Controls.Add(this.lblMonth);
             this.tpRevenue.Controls.Add(this.cbMonthRevenue);
@@ -81,10 +82,10 @@ namespace ManageHotel
             this.tpRevenue.Size = new System.Drawing.Size(723, 354);
             this.tpRevenue.TabIndex = 0;
             this.tpRevenue.Text = "Doanh thu theo loại phòng";
-            this.tpRevenue.UseVisualStyleBackColor = true;
             // 
             // chartRevenue
             // 
+            this.chartRevenue.BackColor = System.Drawing.Color.Transparent;
             chartArea1.AxisX.Title = "Loại phòng";
             chartArea1.AxisY.Title = "Doanh thu (VNĐ)";
             chartArea1.Name = "caRevenue";
@@ -119,6 +120,7 @@ namespace ManageHotel
             // 
             // cbMonthRevenue
             // 
+            this.cbMonthRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.cbMonthRevenue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonthRevenue.FormattingEnabled = true;
             this.cbMonthRevenue.Location = new System.Drawing.Point(58, 8);
@@ -131,6 +133,7 @@ namespace ManageHotel
             // 
             this.dgvRevenue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRevenue.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvRevenue.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.dgvRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRevenue.Location = new System.Drawing.Point(7, 43);
             this.dgvRevenue.Name = "dgvRevenue";
@@ -141,6 +144,7 @@ namespace ManageHotel
             // 
             // tpDensity
             // 
+            this.tpDensity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.tpDensity.Controls.Add(this.chartDensity);
             this.tpDensity.Controls.Add(this.label1);
             this.tpDensity.Controls.Add(this.cbMonthDensity);
@@ -151,10 +155,10 @@ namespace ManageHotel
             this.tpDensity.Size = new System.Drawing.Size(723, 354);
             this.tpDensity.TabIndex = 1;
             this.tpDensity.Text = "Mật độ sử dụng phòng";
-            this.tpDensity.UseVisualStyleBackColor = true;
             // 
             // chartDensity
             // 
+            this.chartDensity.BackColor = System.Drawing.Color.Transparent;
             chartArea2.AxisX.Title = "Phòng";
             chartArea2.AxisY.Title = "Số ngày";
             chartArea2.Name = "caDensity";
@@ -189,6 +193,7 @@ namespace ManageHotel
             // 
             // cbMonthDensity
             // 
+            this.cbMonthDensity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.cbMonthDensity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonthDensity.FormattingEnabled = true;
             this.cbMonthDensity.Location = new System.Drawing.Point(58, 8);
@@ -201,6 +206,7 @@ namespace ManageHotel
             // 
             this.dgvDensity.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDensity.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDensity.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.dgvDensity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDensity.Location = new System.Drawing.Point(7, 43);
             this.dgvDensity.Name = "dgvDensity";
@@ -223,6 +229,7 @@ namespace ManageHotel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(756, 444);
             this.Controls.Add(this.lblTicket);
             this.Controls.Add(this.tcReport);

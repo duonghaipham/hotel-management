@@ -38,6 +38,7 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtPriceValue = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRentRoom)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,12 +76,13 @@
             // 
             this.dgvRentRoom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRentRoom.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvRentRoom.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.dgvRentRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRentRoom.Location = new System.Drawing.Point(22, 131);
             this.dgvRentRoom.Name = "dgvRentRoom";
             this.dgvRentRoom.ReadOnly = true;
             this.dgvRentRoom.RowHeadersVisible = false;
-            this.dgvRentRoom.Size = new System.Drawing.Size(500, 344);
+            this.dgvRentRoom.Size = new System.Drawing.Size(500, 315);
             this.dgvRentRoom.TabIndex = 7;
             this.dgvRentRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRentRoom_CellClick);
             // 
@@ -96,6 +98,7 @@
             // 
             // txtCustomer
             // 
+            this.txtCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtCustomer.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCustomer.Location = new System.Drawing.Point(102, 59);
@@ -106,6 +109,7 @@
             // 
             // txtAddress
             // 
+            this.txtAddress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Location = new System.Drawing.Point(102, 91);
             this.txtAddress.Name = "txtAddress";
@@ -115,6 +119,7 @@
             // 
             // txtPriceValue
             // 
+            this.txtPriceValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtPriceValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPriceValue.Location = new System.Drawing.Point(368, 61);
             this.txtPriceValue.Name = "txtPriceValue";
@@ -124,21 +129,38 @@
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(367, 89);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(157, 26);
             this.btnSubmit.TabIndex = 1;
             this.btnSubmit.Text = "Tính";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.Image = global::ManageHotel.Properties.Resources.Home;
+            this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnMenu.Location = new System.Drawing.Point(401, 462);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(121, 33);
+            this.btnMenu.TabIndex = 16;
+            this.btnMenu.Text = "Màn hình chính";
+            this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // FormBill
             // 
             this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 497);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(544, 515);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtPriceValue);
             this.Controls.Add(this.txtAddress);
@@ -170,5 +192,6 @@
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtPriceValue;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnMenu;
     }
 }

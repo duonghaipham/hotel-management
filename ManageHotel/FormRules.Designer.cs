@@ -85,6 +85,7 @@
             // 
             // txtKindAndPrice
             // 
+            this.txtKindAndPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtKindAndPrice.Location = new System.Drawing.Point(19, 103);
             this.txtKindAndPrice.Multiline = true;
             this.txtKindAndPrice.Name = "txtKindAndPrice";
@@ -103,6 +104,7 @@
             // 
             // nudAmountRooms
             // 
+            this.nudAmountRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.nudAmountRooms.Location = new System.Drawing.Point(128, 35);
             this.nudAmountRooms.Margin = new System.Windows.Forms.Padding(2);
             this.nudAmountRooms.Minimum = new decimal(new int[] {
@@ -149,6 +151,7 @@
             // 
             // txtCustomerKinds
             // 
+            this.txtCustomerKinds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtCustomerKinds.Location = new System.Drawing.Point(19, 103);
             this.txtCustomerKinds.Multiline = true;
             this.txtCustomerKinds.Name = "txtCustomerKinds";
@@ -157,6 +160,7 @@
             // 
             // nudMaximumAmount
             // 
+            this.nudMaximumAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.nudMaximumAmount.Location = new System.Drawing.Point(130, 268);
             this.nudMaximumAmount.Margin = new System.Windows.Forms.Padding(2);
             this.nudMaximumAmount.Minimum = new decimal(new int[] {
@@ -195,6 +199,7 @@
             // 
             // nudAmountCustomerKinds
             // 
+            this.nudAmountCustomerKinds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.nudAmountCustomerKinds.Location = new System.Drawing.Point(128, 35);
             this.nudAmountCustomerKinds.Margin = new System.Windows.Forms.Padding(2);
             this.nudAmountCustomerKinds.Minimum = new decimal(new int[] {
@@ -239,6 +244,7 @@
             // 
             // nudSurchargeBeginning
             // 
+            this.nudSurchargeBeginning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.nudSurchargeBeginning.Location = new System.Drawing.Point(352, 32);
             this.nudSurchargeBeginning.Margin = new System.Windows.Forms.Padding(2);
             this.nudSurchargeBeginning.Minimum = new decimal(new int[] {
@@ -267,6 +273,7 @@
             // 
             // txtRatio
             // 
+            this.txtRatio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtRatio.Location = new System.Drawing.Point(76, 32);
             this.txtRatio.Margin = new System.Windows.Forms.Padding(2);
             this.txtRatio.Name = "txtRatio";
@@ -302,6 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(468, 513);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.gbSurcharge);

@@ -46,6 +46,7 @@
             // 
             this.dgvRoomList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRoomList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvRoomList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.dgvRoomList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRoomList.Location = new System.Drawing.Point(18, 166);
             this.dgvRoomList.Name = "dgvRoomList";
@@ -65,6 +66,7 @@
             // 
             // cbRoomKind
             // 
+            this.cbRoomKind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.cbRoomKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRoomKind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRoomKind.FormattingEnabled = true;
@@ -76,6 +78,7 @@
             // 
             // txtRoomPrice
             // 
+            this.txtRoomPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtRoomPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoomPrice.Location = new System.Drawing.Point(94, 125);
             this.txtRoomPrice.Name = "txtRoomPrice";
@@ -115,6 +118,7 @@
             // 
             // txtRoomName
             // 
+            this.txtRoomName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtRoomName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoomName.Location = new System.Drawing.Point(94, 61);
             this.txtRoomName.Name = "txtRoomName";
@@ -124,6 +128,7 @@
             // 
             // btnPay
             // 
+            this.btnPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.Image = global::ManageHotel.Properties.Resources.Cash;
             this.btnPay.Location = new System.Drawing.Point(461, 61);
@@ -132,11 +137,12 @@
             this.btnPay.TabIndex = 5;
             this.btnPay.Text = "Thanh toán...";
             this.btnPay.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.UseVisualStyleBackColor = false;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // btnView
             // 
+            this.btnView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnView.Image = global::ManageHotel.Properties.Resources.Key;
             this.btnView.Location = new System.Drawing.Point(347, 61);
@@ -145,13 +151,14 @@
             this.btnView.TabIndex = 4;
             this.btnView.Text = "Thuê phòng...";
             this.btnView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.UseVisualStyleBackColor = false;
             this.btnView.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // fRoomList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(580, 555);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.cbRoomKind);
